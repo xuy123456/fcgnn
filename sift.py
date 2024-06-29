@@ -12,17 +12,17 @@ class SIFT(nn.Module):
         except:
             self.sift = cv2.xfeatures2d.SIFT_create()
 
-    def forward(self, img1, img2):
+    def forward(self, img1, img2, device='cpu'):
 
         kp1, des1 = self.sift.detectAndCompute(img1,None)   #des是描述子
         kp2, des2 = self.sift.detectAndCompute(img2,None)   #des是描述子
 
-        desc1 = torch.from_numpy(des1).float()
-        desc2 = torch.from_numpy(des2).float()
+        desc1 = torch.from_numpy(des1).float().to(device)
+        desc2 = torch.from_numpy(des2).float().to(device)
 
         match_ids, _ = mnn_matching(desc1, desc2, threshold=0)
 
-        match_ids = match_ids.numpy()
+        match_ids = match_ids.cpu().numpy()
 
         kp1 = np.array([kp.pt for kp in kp1])
         kp2 = np.array([kp.pt for kp in kp2])
@@ -31,7 +31,7 @@ class SIFT(nn.Module):
         p2 = kp2[match_ids[:, 1]]
 
         matches = np.hstack((p1, p2))
-        matches = torch.tensor(matches).float()
+        matches = torch.tensor(matches).float().to(device)
 
         return matches
 
