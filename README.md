@@ -10,7 +10,7 @@
 FC-GNN is a lightweight graph neural network that optimizes local feature matching pipeline through a combined filtering and calibrating approach. It receives image pairs and related matches as inputs and returns the optimized matching results.
 
 <p align="center">
-  <img src="assets/main_graph_c.png" width="500">
+  <img src="assets/main_graph_c.png" width="1000">
 </p>
 
 ## Installation and demo
