@@ -52,7 +52,6 @@ import torch
 
 from fcgnn import GNN as fcgnn
 from sift import SIFT
-from utils.draw import draw_matches
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
