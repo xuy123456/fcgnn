@@ -73,7 +73,7 @@ img2_ = torch.tensor(img2.astype('float32') / 255.)[None, None].to(device)
 matches_refined = fcgnn_refiner.optimize_matches(img1_, img2_, matches, thd=0.999, min_matches=10)[0]
 ```
 
-The pre-trained weights will be automatically loaded. If the loading fails, you can download the weights [here](https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model), and put it to './weights/'. You can also run demo.py to get visual results.
+The pre-trained weights will be automatically loaded. If the loading fails, you can download the weights [here](https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model), and put it to './weights'. You can also run demo.py to get visual results.
 
 ## BibTeX
 If you find our models useful, please consider citing our paper:
