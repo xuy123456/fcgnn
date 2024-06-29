@@ -44,7 +44,7 @@ matches_refined = fcgnn_refiner.optimize_matches(img1, img2,
                                                  min_matches=10)
 ```
 
-We provide a script to show how to use FC-GNN with SIFT matcher:
+We provide a script to show how to use FC-GNN with SIFT + MNN matcher:
 
 ```python
 import cv2
