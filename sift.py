@@ -14,8 +14,8 @@ class SIFT(nn.Module):
 
     def forward(self, img1, img2, device='cpu'):
 
-        kp1, des1 = self.sift.detectAndCompute(img1,None)   #des是描述子
-        kp2, des2 = self.sift.detectAndCompute(img2,None)   #des是描述子
+        kp1, des1 = self.sift.detectAndCompute(img1,None)
+        kp2, des2 = self.sift.detectAndCompute(img2,None)
 
         desc1 = torch.from_numpy(des1).float().to(device)
         desc2 = torch.from_numpy(des2).float().to(device)
