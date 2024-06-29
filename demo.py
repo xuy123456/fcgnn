@@ -8,7 +8,7 @@ from utils.draw import draw_matches
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 sift_matcher = SIFT()
-fcgnn_refiner = fcgnn()
+fcgnn_refiner = fcgnn().to(device)
 
 img1_path = './assets/img1.jpg'
 img2_path = './assets/img2.jpg'
