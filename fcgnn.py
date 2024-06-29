@@ -25,10 +25,8 @@ class GNN(nn.Module):
         if os.path.exists('./weights/fcgnn.model'):
             self.load_state_dict(torch.load('./weights/fcgnn.model', map_location='cpu')) 
         else:
-            url = "https://github.com/xu123456/fcgnn/releases/download/v0/fcgnn.model"
-            state_dict = torch.hub.load_state_dict_from_url(
-                url, file_name='fcgnn.model'
-            )
+            url = "https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model"
+            state_dict = torch.hub.load_state_dict_from_url(url)
             self.load_state_dict(state_dict, strict=False)
         
     def forward(self, img1, img2, matches):
