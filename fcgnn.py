@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import math
 import copy
 import numpy as np
+from pathlib import Path
 
 class GNN(nn.Module):
     def __init__(self, depth=9):
@@ -22,8 +23,10 @@ class GNN(nn.Module):
         self.mlp_s = nn.Sequential(OutBlock(in_dim, 1), nn.Sigmoid())
         self.mlp_o = nn.Sequential(OutBlock(in_dim, 2))
 
-        if os.path.exists('./weights/fcgnn.model'):
-            self.load_state_dict(torch.load('./weights/fcgnn.model', map_location='cpu')) 
+        local_path = Path(__file__).parent / 'weights/fcgnn.model'
+
+        if os.path.exists(local_path):
+            self.load_state_dict(torch.load(local_path, map_location='cpu')) 
         else:
             url = "https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model"
             state_dict = torch.hub.load_state_dict_from_url(url)
