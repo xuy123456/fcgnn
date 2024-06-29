@@ -36,7 +36,7 @@ inputs:
   min_matches: minimum number of matches to keep
 
 return:
-  optimized matches list: [matches_refined1, matches_refined2, ...]
+  list of optimized match sets: [matches1, matches2, ...]
 '''
 
 matches_refined = fcgnn_refiner.optimize_matches(img1, img2, 
