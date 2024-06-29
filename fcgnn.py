@@ -1,10 +1,10 @@
-import torch.nn as nn
+import os
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 import math
 import copy
 import numpy as np
-
 
 class GNN(nn.Module):
     def __init__(self, depth=9):
@@ -22,8 +22,15 @@ class GNN(nn.Module):
         self.mlp_s = nn.Sequential(OutBlock(in_dim, 1), nn.Sigmoid())
         self.mlp_o = nn.Sequential(OutBlock(in_dim, 2))
 
-        self.load_state_dict(torch.load('./weights/fcgnn.model', map_location='cpu')) 
-    
+        if os.path.exists('./weights/fcgnn.model'):
+            self.load_state_dict(torch.load('./weights/fcgnn.model', map_location='cpu')) 
+        else:
+            url = "https://github.com/xu123456/fcgnn/releases/download/v0/fcgnn.model"
+            state_dict = torch.hub.load_state_dict_from_url(
+                url, file_name='fcgnn.model'
+            )
+            self.load_state_dict(state_dict, strict=False)
+        
     def forward(self, img1, img2, matches):
 
         def _map(idx, n):
