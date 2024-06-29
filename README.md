@@ -19,7 +19,6 @@ To install this repo:
 
 ```bash
 git clone https://github.com/xuy123456/fcgnn.git && cd fcgnn
-python -m pip install -e .
 ```
 
 To use FC-GNN:
