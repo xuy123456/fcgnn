@@ -28,6 +28,8 @@ class GNN(nn.Module):
             url = "https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model"
             state_dict = torch.hub.load_state_dict_from_url(url)
             self.load_state_dict(state_dict, strict=False)
+
+        print('FC-GNN weights loaded')
         
     def forward(self, img1, img2, matches):
 
