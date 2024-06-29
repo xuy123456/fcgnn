@@ -65,11 +65,10 @@ img2_path = './assets/img2.jpg'
 img1 = cv2.imread(img1_path, cv2.IMREAD_GRAYSCALE)
 img2 = cv2.imread(img2_path, cv2.IMREAD_GRAYSCALE)
 
-matches = sift_matcher(img1, img2)
+matches = sift_matcher(img1, img2, device=device)
 
 img1_ = torch.tensor(img1.astype('float32') / 255.)[None, None].to(device)
 img2_ = torch.tensor(img2.astype('float32') / 255.)[None, None].to(device)
-matches = matches.to(device)
 
 matches_refined = fcgnn_refiner.optimize_matches(img1_, img2_, matches, thd=0.999, min_matches=10)[0]
 ```
