@@ -16,7 +16,7 @@ img2_path = './assets/img2.jpg'
 img1 = cv2.imread(img1_path, cv2.IMREAD_GRAYSCALE)
 img2 = cv2.imread(img2_path, cv2.IMREAD_GRAYSCALE)
 
-matches = sift_matcher(img1, img2)
+matches = sift_matcher(img1, img2, device=device)
 
 draw_matches(img1, img2, matches.detach().cpu().numpy(), filename='matches_before.png')
 print("'./matches_before.png' has been created")
