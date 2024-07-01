@@ -29,7 +29,7 @@ class GNN(nn.Module):
             self.load_state_dict(torch.load(local_path, map_location='cpu')) 
         else:
             url = "https://github.com/xuy123456/fcgnn/releases/download/v0/fcgnn.model"
-            state_dict = torch.hub.load_state_dict_from_url(url)
+            state_dict = torch.hub.load_state_dict_from_url(url, map_location='cpu')
             self.load_state_dict(state_dict, strict=False)
 
         print('FC-GNN weights loaded')
