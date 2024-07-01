@@ -1,7 +1,6 @@
 # FC-GNN: Recovering Reliable and Accurate Correspondences from Interferences
 
-### [Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Xu_FC-GNN_Recovering_Reliable_and_Accurate_Correspondences_from_Interferences_CVPR_2024_paper.pdf)
-<br/>
+### [Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Xu_FC-GNN_Recovering_Reliable_and_Accurate_Correspondences_from_Interferences_CVPR_2024_paper.pdf) <br/>
 
 > FC-GNN: Recovering Reliable and Accurate Correspondences from Interferences \
 > Haobo Xu, Jun Zhou, Hua Yang, Renjie Pan, Cunyan Li \
