@@ -56,7 +56,7 @@ class GNN(nn.Module):
             relative_pos = relative_pos[b_ids, l_ids, query.view(-1), :].reshape(b, l, n_neighbors*4)
 
             if n_neighbors < n:
-                relative_pos = torch.cat([relative_pos, torch.zeros((b, l, (n - n_neighbors)*4), device=relative_pos.device], dim=2)
+                relative_pos = torch.cat([relative_pos, torch.zeros((b, l, (n - n_neighbors)*4), device=relative_pos.device)], dim=2)
 
             return query, relative_pos
 
